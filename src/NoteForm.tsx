@@ -15,6 +15,7 @@ export default function NoteForm({ onSubmit }: NoteFormProps) {
     function handleSubmit(e: FormEvent) {
         e.preventDefault()
 
+
         onSubmit({
             title: titleRef.current!.value,
             markdown: markdownRef.current!.value,
@@ -38,7 +39,11 @@ export default function NoteForm({ onSubmit }: NoteFormProps) {
                             <ReactSelectCreatable value={selectedTags.map(tag => {
                                 return { label: tag.label, value: tag.id }
                             })}
-                                onChange={tags}
+                                onChange={tags => {
+                                    setSelectedTags(tags.map(tag => {
+                                        return { label: tag.label, id: tag.value }
+                                    }))
+                                }}
                                 isMulti />
                         </Form.Group>
                     </Col>
