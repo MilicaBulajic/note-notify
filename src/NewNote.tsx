@@ -7,7 +7,7 @@ type NewNoteProps = {
     availableTags: Tag[]
 }
 
-function NewNote({ onSubmit, onAddTag, availableTags }: NewNoteProps) {
+export function NewNote({ onSubmit, onAddTag, availableTags }: NewNoteProps) {
     return (
         <>
             <div>NewNote</div>
@@ -16,4 +16,3 @@ function NewNote({ onSubmit, onAddTag, availableTags }: NewNoteProps) {
     )
 }
 
-export default NewNote
